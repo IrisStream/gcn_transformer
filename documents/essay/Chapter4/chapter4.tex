@@ -1,0 +1,45 @@
+\chapter{Huấn luyện và Kết quả}
+
+\section{Huấn luyện}
+
+Như đã trên bày ở trên, cả 2 mô hình \textit{WordGCN} và  \textit{Transformer}  đều sẽ được huấn luyện bởi kho ngữ liệu \textit{WMT14}. Với khoảng 4.5 triệu câu song ngữ Anh Đức. Sử dụng bộ tự vựng bao gồm 50000 từ cho cả 2 ngôn ngữ Anh và Đức.
+
+\subsection{Kích thước batch của dữ liệu huấn luyện}
+Kích thước batch của dữ liệu được huấn luyện đối với mô hình \textit{SynGCN} là 128 và mô hình \textit{SemGCN} là 64. 
+
+Đối với \textit{Transformer}, mỗi batch dữ liệu sẽ có kích thước 25000.
+
+\subsubsection{Thuật toán tối ưu}
+\textit{SynGCN} và \textit{SemGCN} sử dụng thuật toán \textit{Adam} với giá trị của \textit{learning rate}:
+\begin{equation*}
+	l_{rate} = 10^{-3}
+\end{equation*}
+
+Đối với \textit{Transformer}, thuật toán tối ưu được sử dụng vẫn là \textit{Adam} với các siêu tham số như sau:
+\begin{equation*}
+	\begin{cases}
+		l_{rate} = 10^{-3} \\
+		\beta_1 = 0.9 \\
+		\beta_2 = 0.98 \\
+		\epsilon = 10^{-9}
+	\end{cases}
+\end{equation*}
+
+\subsection{Kết quả}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+	\multicolumn{1}{c|}{Mô hình}                 & \multicolumn{1}{c}{BLEU}  \\ \hline
+	\multicolumn{1}{l|}{ \textit{transformer} (baseline)}           & \multicolumn{1}{l}{27.3} \\ \hline
+	\multicolumn{1}{l|}{WordGCN +  \textit{transformer} } & \multicolumn{1}{l}{26.5} \\ \hline
+\end{tabular}
+\caption{Bảng kết quả huấn luyện của mô hình cơ sở và mô hình đề xuất}
+\end{table}
+
+Kết quả huấn luyện của mô hình đề xuất tuy chưa thể vượt qua được kết quả của mô hình cơ sở tuy nhiên vẫn có hiệu quả khá tốt so với các mô hình trước đây. Nguyên nhân của kết quả này có thể là do các nguyên nhân sau:
+\begin{itemize}
+	\item Các bộ siêu tham số chưa được tối ưu giá trị.
+	\item Kho từ vựng còn thiếu sót nhiều từ.
+	\item Kích thước embedding được huấn luyện ở mô hình \textit{WordGCN} chưa phù hợp khi đưa vào mô hình \textit{transformer} .
+\end{itemize}

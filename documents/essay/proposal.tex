@@ -1,0 +1,200 @@
+%Đây là template dùng cho đề cương đề tài tốt nghiệp
+%Khoa Công nghệ Thông tin
+%Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM
+
+%Liên hệ về mẫu LaTEX này: Thầy Bùi Huy Thông (bhthong@fit.hcmus.edu.vn)
+
+\documentclass{article}[14pt]
+\usepackage[utf8]{vietnam}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{fancybox,framed}
+\linespread{1.2}
+\usepackage{lastpage}
+\usepackage{floatrow}
+\usepackage{floatrow}
+
+\usepackage{booktabs, multirow} % for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\usepackage{changepage,threeparttable} % for wide tables
+
+\pagenumbering{arabic}
+%\pagestyle{fancy}
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage[nottoc]{tocbibind}
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+%\addbibresource{ref.bib}
+
+
+\begin{document}
+    \begin{figure}[h]
+        \begin{floatrow}
+        \ffigbox{\includegraphics[scale = .4]{logo.png}}  
+        {%
+    
+        }
+        \capbtabbox{
+            \begin{tabular}{l}
+            \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN\\KHOA CÔNG NGHỆ THÔNG TIN\end{tabular}}} \\ \\ \\
+            \end{tabular}
+        }
+        {%
+    
+        }
+        \end{floatrow}
+    \end{figure}
+    
+    \begin{center}
+        
+        %Xác định loại đề tài tốt nghiệp tương ứng: Khóa luận, Thực tập, Đồ án
+        \textbf{\Large ĐỀ CƯƠNG KHOÁ LUẬN TỐT NGHIỆP} \\ 
+    \end{center}
+    
+    %\vspace{.5cm}
+    
+    \begin{center}
+    %Tên đề tài phải VIẾT HOA
+        
+        \textbf{\huge Sử dụng GNN biểu diễn các Embeddings cho mô hình  \textit{transformer} } 
+        \\
+        
+    %Tên đề tài bằng tiếng Anh (nếu có)
+    % \vspace{.5cm}
+    %     \textit{\textbf{\Large (Tên Đề Tài bằng Tiếng Anh)}}
+    \end{center}
+    
+    \vspace{.5cm}
+    
+    \Large
+    \section{THÔNG TIN CHUNG}
+    \begin{itemize}[label = {}]
+        
+        \item \textbf{Người hướng dẫn:} 
+        %Thể hiện dạng: <Chức danh> <Họ và tên> (<Đơn vị công tác>)
+        \begin{itemize}
+            \item TS. Nguyễn Ngọc Thảo (Khoa Công nghệ thông tin) 
+            \item ThS. Tạ Việt Phương (Trường Đại học Công nghệ Thông tin)
+        \end{itemize}{}
+    
+        
+        \item \textbf{Sinh viên thực hiện:}
+        
+        %Thể hiện dạng: <Họ và tên sinh viên> (MSSV: )
+        \begin{enumerate}
+            \item Ngô Phù Hữu Đại Sơn (MSSV: 18120078)
+        \end{enumerate}
+
+       %Chọn loại thích hợp
+        \item \textbf{Loại đề tài:} Nghiên cứu
+        
+        \item \textbf{Thời gian thực hiện:} Từ \textit{01/2022} đến \textit{07/2022}
+        
+        
+    \end{itemize}
+    
+    \section{NỘI DUNG THỰC HIỆN}
+    {
+
+    %Mỗi mục dưới đây phải viết ít nhất là 5 câu mô tả/giới thiệu.
+    
+    \subsection{Giới thiệu về đề tài}
+    
+    Các mô hình giải quyết bài toán Machine Translation sử dụng kiến trúc Attention đang thể hiện các kết quả rất tốt trong các thí nghiệm và thực tế. Một trong những phần quan trọng của những mô hình này là các mô hình encoding các từ thành các word embeddings để có thể chuyển từ ngữ thành các đầu vào có thể tính toán.
+
+    Đồ thị xuất hiện một cách tự nhiên trong nhiều lĩnh vực ứng dụng, từ phân tích xã hội, sinh học, hóa học đến thị giác máy tính. Đồ thị cho phép nắm bắt các mối quan hệ cấu trúc giữa các dữ liệu và do đó cho phép thu thập nhiều thông tin chi tiết hơn.
+
+    Một trong các phương pháp giúp encode các từ ngữ thành các vector là sử dụng Graph Convolution Neural NetWork (GCN). Lợi ích của việc sử dụng \textit{GCN} là: 
+    \begin{itemize}
+        \item Thể hiện được các Syntactic Context giữa các từ ngữ trong câu.
+        \item Thể hiện được các Semantic Context giữa các từ ngữ với nhau.
+    \end{itemize}
+    Nhờ vào đó, các embeddings được học ra có khả năng biểu diễn ngữ nghĩa và cấu trúc trong câu tốt hơn, phù hợp cho các bài toán về Machine Translation.
+   
+    \subsection{Mục tiêu đề tài}
+    
+    Mục tiêu của đề tài này bao gồm: (1) - Nghiên cứu, khỏa sát các thuật toán biểu diễn từ ngữ thành các embeddings và (2) - Kết hợp cài đặt các thuật toán giúp nâng cao hiệu xuất của mô hình  \textit{transformer}  để giải quyết bài toán Machine Translation.
+
+    Việc nghiên cứu khảo sát các thuật toán nhằm đưa ra được các đánh giá về ưu điểm và nhược điểm của chúng. Từ đó, cho thấy được độ hiệu quả và tiềm năng của \textit{GCN} trong bài toán machine translation.
+
+    Việc kết hợp cài đặt nhằm chứng minh tính hiệu quả của mô hình đề xuất.
+    
+    \subsection{Phạm vi của đề tài}
+    
+    Nghiên cứu ở (\cite{transfomer-survey}) đã chỉ các các hướng nghiên cứu cho mô hình transfomer. Trong đó: (1) - Cải thiện hiệu suất cho mô hình  \textit{transformer} , (2) - Khái quát hóa mô hình giúp huấn luyện với tập dữ liệu nhỏ hơn. (3) - Tăng độ thích nghi của mô hình vào các tác vụ thực tế hơn.
+
+    Đề tài của khóa luận này  có phạm vi nghiên cứu giúp cải thiện hiệu suất của mô hình  \textit{transformer}  dựa trên embeddings đã được huấn luyện trước(\cite{wordgcn2019})
+    
+    Đề tài thực hiện bài toán dịch cụ thể từ tiếng Anh sang tiếng Đức.
+    
+    \subsection{Cách tiếp cận dự kiến}
+    
+    %Có thể bổ sung hình ảnh vào để làm rõ phương pháp hoặc cách tiếp cận dự kiến.
+    
+    \Large{\textbf{Phương pháp chính.}} Theo các đề xuất ở (\cite{wordgcn2019}):
+    \begin{itemize}
+        \item Mô hình \textit{SynGCN} để huấn luyện các word embeddings theo Syntactic Context.
+        \item Sau đó sử dụng mô hình \textit{SemGCN} để huấn luyện các word embeddings từ \textit{SynGCN} theo Semantic Context.
+    \end{itemize}  
+    Phương pháp đề xuất trong khóa luận nhắm tích hợp các embeddings sau khi được vào huấn luyện ở mô hình \textit{SynGCN}+\textit{SemGCN} sẽ được sử dụng để huấn luyện mô hình  \textit{transformer}  được đề xuất ở (\cite{transformer}) với kì vọng sẽ tăng được hiệu xuất của mô hình.
+
+    \Large{\textbf{Dữ liệu thực nghiệm.}} Sử dụng tập dữ liệu Multi30k để huấn luyện mô hình có thể dịch từ tiếng Anh sang tiếng Đức. Sử dụng 80\% dữ liệu để huấn luyện và 20\% dữ liệu để kiểm thử.
+
+    \Large{\textbf{Phương pháp đối sánh.}} Sử dụng mô hình transfomer làm mô hình baseline. So sánh hiệu suất giữa mô hình đề xuất và mô hình baseline.
+
+    \subsection{Kết quả dự kiến của đề tài}
+       
+    Sau khi tiến hành, nghiên cứu này kỳ vọng sẽ đạt được các kết quả sau:
+    \begin{itemize}
+        \item Nắm được ý tưởng của việc sử dụng \textit{GCN} để huấn luyện các word embeddings.
+        \item Cài đặt được mô hình baseline.
+        \item Tích hợp \textit{SynGCN} và \textit{SemGCN} vào mô hình  \textit{transformer} . So sánh hiệu suất của mô hình đề xuất với mô hình baseline.
+    \end{itemize}
+    
+    \subsection{Kế hoạch thực hiện}
+        
+    Kế hoạch thực hiện khóa luận bao gồm các giai đoạn được trình bày như sau:
+
+    \begin{table}[!htp]\centering
+    \caption{Bảng kế hoạch thực hiện}\label{tab: }
+    \begin{tabular}{crl}\toprule
+    \multicolumn{1}{c}{\textbf{Giai đoạn}} &\multicolumn{1}{c}{\textbf{Thời gian}} &\multicolumn{1}{c}{\textbf{Công việc}} \\\midrule
+    1 &01/01/2022 - 31/01/2022 &\begin{tabular}{@{}l@{}}Tìm hiểu kiến thức nền tảng về  \textit{transformer}  \\ Cài đặt mô hình  \textit{transformer}  \end{tabular}\\ \midrule
+    2 &01/02/2022 - 28/02/2022 &\begin{tabular}{@{}l@{}}Tìm hiểu kiến thức nền tảng về word embeddings \\ Tìm hiểu kiến thức nền tảng về \textit{GCN} \\ Tìm hiểu kiến thức nền tảng của \textit{SynGCN} và \textit{SemGCN} \end{tabular} \\ \midrule
+    3 &01/03/2022 - 31/03/2022 &\begin{tabular}{@{}l@{}}Tích hợp mô hình \textit{SynGCN} và \textit{SemGCN} \\ vào mô hình  \textit{transformer}  \end{tabular} \\ \midrule
+    5 &01/04/2022 - 30/04/2022 &\begin{tabular}{@{}l@{}}Chạy các thực nghiệm trên mô hình \\ Phân tích và đánh giá kết quả \end{tabular} \\ \midrule
+    6 &01/05/2022 - 31/05/2022 &\begin{tabular}{@{}l@{}}Viết luận văn \\ Làm slide thuyết trình \\ Tập thuyết trình \end{tabular} \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+    
+    }
+    \pagebreak
+
+    %TÀI LIỆU TRÍCH DẪN
+    %Đây là ví dụ
+    \bibliographystyle{ieeetr}
+    \bibliography{sample}
+    \nocite{*}
+
+    \begin{table}[h]
+    \centering
+        \begin{tabular}{p{7cm}p{7cm}}
+        \textbf{\begin{tabular}[c]{@{}c@{}}\\XÁC NHẬN\\CỦA NGƯỜI HƯỚNG DẪN\\ \textit{(Ký và ghi rõ họ tên)}\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}\textit{TP. Hồ Chí Minh, 04/04/2022}\\SINH VIÊN THỰC HIỆN\\\textit{(Ký và ghi rõ họ tên}) \end{tabular}}
+        \end{tabular}
+    \end{table}
+    
+\end{document}
